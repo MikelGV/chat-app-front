@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import EVENTS from "../config/events";
 import { useSockets } from "../context/socket.contect";
-import sytles from "../styles/Room.modules.css";
+import styles from "../styles/Room.module.css"
 
 function RoomsContainer() {
     const { socket, roomId, rooms } = useSockets();
@@ -27,13 +27,13 @@ function RoomsContainer() {
     }
 
     return (
-        <nav className={sytles.wrapper}>
-            <div className={sytles.createRoomWrapper}>
+        <nav className={styles.wrapper}>
+            <div className={styles.createRoomWrapper}>
                 <input ref={newRoomRef} placeholder="Room name"/>
                 <button className="cta" onClick={handleCreateRoom}>Create room</button>
             </div>
 
-            <ul className={sytles.roomList}>
+            <ul className={styles.roomList}>
                 {Object.keys(rooms).map((key) => {
                     return(
                         <div key={key}>
