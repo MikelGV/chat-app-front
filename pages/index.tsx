@@ -4,7 +4,7 @@ import { useSockets } from '../context/socket.contect'
 import styles from '../styles/Home.module.css'
 import RoomsContainer from '../containers/rooms'
 import MessagesContainer from '../containers/messages'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function Home() {
 
@@ -20,16 +20,22 @@ export default function Home() {
 
     localStorage.setItem("username", value);
   }
+  useEffect(() => {
+    if (usernameRef) {
+      usernameRef.current.value = localStorage.getItem("username") || "";
+    }
+  }, []);
 
   return (
     <div>
-      {!username && 
+      {!username && (
         <div className={styles.usernameWrapper}>
           <div className={styles.usernameInner}>
             <input placeholder="Username" ref={usernameRef} />  
-            <button onClick={handleSetUsername}>Start</button>
+            <button className="cta" onClick={handleSetUsername}>Start</button>
           </div>
-        </div>}
+      </div>
+      )}
       {username && (
         <div className={styles.container}>
           <RoomsContainer />
