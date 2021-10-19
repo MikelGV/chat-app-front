@@ -12,18 +12,19 @@ export default function Home() {
   const usernameRef = useRef(null)
   
   function handleSetUsername() {
-    const value = usernameRef.current.value
+    const value = usernameRef.current.value;
     if (!value) {
       return;
     }
+
     setUsername(value);
 
     localStorage.setItem("username", value);
   }
+
   useEffect(() => {
-    if (usernameRef) {
+    if (usernameRef)
       usernameRef.current.value = localStorage.getItem("username") || "";
-    }
   }, []);
 
   return (
@@ -31,7 +32,7 @@ export default function Home() {
       {!username && (
         <div className={styles.usernameWrapper}>
           <div className={styles.usernameInner}>
-            <input placeholder="Username" ref={usernameRef} />  
+            <input placeholder="username" ref={usernameRef} />  
             <button className="cta" onClick={handleSetUsername}>Start</button>
           </div>
         </div>
