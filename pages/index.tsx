@@ -34,7 +34,7 @@ export default function Home() {
             <input placeholder="Username" ref={usernameRef} />  
             <button className="cta" onClick={handleSetUsername}>Start</button>
           </div>
-      </div>
+        </div>
       )}
       {username && (
         <div className={styles.container}>
