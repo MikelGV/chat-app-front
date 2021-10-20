@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react'
 export default function Home() {
 
   const { socket, username, setUsername } = useSockets();
-  const usernameRef = useRef(null)
+  const usernameRef = useRef(null);
   
   function handleSetUsername() {
     const value = usernameRef.current.value;
@@ -32,7 +32,7 @@ export default function Home() {
       {!username && (
         <div className={styles.usernameWrapper}>
           <div className={styles.usernameInner}>
-            <input placeholder="username" ref={usernameRef} />  
+            <input placeholder="Username" ref={usernameRef} />  
             <button className="cta" onClick={handleSetUsername}>Start</button>
           </div>
         </div>
