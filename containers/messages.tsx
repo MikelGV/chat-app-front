@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import EVENTS from "../config/events";
-import { useSockets } from "../context/socket.contect";
+import { useSockets } from "../context/socket.context";
 import styles from "../styles/Messages.module.css"
 
 function MessagesContainer() {
